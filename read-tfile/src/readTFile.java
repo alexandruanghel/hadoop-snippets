@@ -6,7 +6,7 @@ public class readTFile{
     public static void main (String [] args) throws Exception{
         /*
         Setup variables
-         */
+        */
         Configuration conf = new Configuration();
         FileSystem hdfs = FileSystem.get(conf);
         Path filePath = new Path(args[0]);
@@ -45,7 +45,6 @@ public class readTFile{
         /*
         Now we can read all the entries until the end of the file
         */
-
         while (! fileScanner.atEnd()) {
             /*
             Use a Scanner.Entry object to read each entry.
@@ -71,6 +70,10 @@ public class readTFile{
             */
             fileScanner.advance();
         }
+
+        /*
+        Close the stream and the file
+        */
         fsdis.close();
         hdfs.close();
     }
